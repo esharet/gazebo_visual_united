@@ -12,6 +12,8 @@
    2. in the venv - 
       1. ``` python3 -m pip --upgrade pip setuptools wheel```
       2. ```pip install -r requirements```
+   3. generating the messages - 
+      1. in the project root dir - ```protoc -I=proto --python_out=msgs proto/*```
 5. test everything - run usage in debug mode 
 
 
