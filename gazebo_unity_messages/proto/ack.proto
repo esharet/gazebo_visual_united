@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Ack{ 
+    bool ack = 1; 
+
+}

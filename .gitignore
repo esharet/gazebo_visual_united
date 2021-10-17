@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # needed to prepare again after every clone 
-msgs/
+py_msgs/

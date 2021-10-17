@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message CameraPosition { 
+    double latitude = 1; 
+    
+}
+

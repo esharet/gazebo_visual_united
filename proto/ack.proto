@@ -1,1 +1,0 @@
-// to create all messages: in root project dir- protoc -I=proto --python_out=msgs proto/*
