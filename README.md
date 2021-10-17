@@ -3,9 +3,22 @@
 ## installation 
 1. gazebo installation 
     1. gazebo check 
-    2. add these lines to your .bashrc:
-      export GAZEBO_MODEL_PATH=~/projects/gazebo_visual_united/models:${GAZEBO_MODEL_PATH}
-      export GAZEBO_RESOURCE_PATH=~/projects/gazebo_visual_united/worlds:${GAZEBO_RESOURCE_PATH}
+    2. add these lines to your ~/.bashrc:
+       ```
+       echo 'export GAZEBO_MODEL_PATH=~/projects/gazebo_visual_united/models:${GAZEBO_MODEL_PATH}' >> ~/.bashrc
+       echo 'export GAZEBO_RESOURCE_PATH=~/projects/gazebo_visual_united/worlds:${GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
+       echo 'export GAZEBO_PLUGIN_PATH=~/apm/gazebo_visual_united/build:${GAZEBO_PLUGIN_PATH}' >> ~/.bashrc
+       source ~/.bashrc
+       ```
+
+    3. compile the plugins:
+       ```
+       cd build
+       cmake ..
+       make
+       sudo make install
+       ```
+
 
 2. sitl installation
    1. sitl check
