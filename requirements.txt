@@ -1,1 +1,2 @@
 protobuf
+opencv-contrib-python
