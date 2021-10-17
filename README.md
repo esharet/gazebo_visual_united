@@ -3,6 +3,10 @@
 ## installation 
 1. gazebo installation 
     1. gazebo check 
+    2. add these lines to your .bashrc:
+      export GAZEBO_MODEL_PATH=~/projects/gazebo_visual_united/models:${GAZEBO_MODEL_PATH}
+      export GAZEBO_RESOURCE_PATH=~/projects/gazebo_visual_united/worlds:${GAZEBO_RESOURCE_PATH}
+
 2. sitl installation
    1. sitl check
    2. gazebo and sitl check   
