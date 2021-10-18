@@ -10,3 +10,4 @@ class CameraConsts:
 
 CAMERA_CONFIG_MSG = CameraConfig() 
 UNITY_SOCKET_ADDRESS_PORT = (UnityConsts.UNITY_COM_IP, UnityConsts.UNITY_SOCKET_PORT)
+SOCKET_TIMEOUT = 1

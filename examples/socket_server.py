@@ -2,12 +2,13 @@ import socket
 import sys
 import struct
 
-from gazebo_unity_messages import CameraPosition
+from gazebo_unity_messages import CameraPosition, Ack 
 
 address = ('', 15577)
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 server_socket.bind(address)
 
+server_socket.settimeout(3)
 
 while True:
     print("Listening")

@@ -17,7 +17,9 @@
       1. ``` python3 -m pip --upgrade pip setuptools wheel```
       2. ```pip install -r requirements```
    3. generating the messages - 
-      1. in the project root dir - ```protoc -I=proto --python_out=msgs proto/*```
+      1. in the gazebo_unity_messages dir - ```protoc -I=proto --python_out=py_msgs proto/*```
+   4. setup - 
+      1. in the project root dir - ```python setup.py develop```  
 5. test everything - run usage in debug mode 
 
 
