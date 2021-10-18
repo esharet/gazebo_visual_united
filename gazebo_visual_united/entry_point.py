@@ -9,8 +9,8 @@ def publish_poition_periodically(gazebo_client: GazeboClient, unity_client: Unit
 
 def main(): 
     gz_client = GazeboClient()
-    unity_client = UnityClient(consts.UnityConsts.socket_connection_string, consts.UnityConsts.RTSP_URL)  
-    gazebo_thread = Thread(target=gz_client.recv_messages(), daemon=True)
+    unity_client = UnityClient()
+    gazebo_thread = Thread(target=gz_client.start_recv_position_messages(), daemon=True)
     gazebo_thread.start()
     connection_success = unity_client.initiate_connection(consts.CAMERA_CONFIG_MSG)
 
