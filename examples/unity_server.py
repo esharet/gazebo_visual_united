@@ -11,23 +11,41 @@ server_socket.bind(address)
 
 server_socket.settimeout(3)
 
-while True:
-    print("Listening")
+def connect_client():
+    connected = False
+    while not connected:
+        print("Listening for cam configuration")
 
-    # totallen = server_socket.recv(4)
-    # totallenRecv = struct.unpack('>I', totallen)[0]
-    # messagelen = totallenRecv - 4
-    cam_config = CameraConfig()
+        cam_config = CameraConfig()
 
-    message, sender_address = server_socket.recvfrom(1000)
-    print(sender_address)
-    print('after message')
-    try: 
-        cam_config.ParseFromString(message)
-        ack_message = Ack()
-        ack_message.ack = True
-        server_socket.sendto(ack_message.SerializeToString(), sender_address)
-    except Exception as e: 
-        print(e)
-    else: 
-        print(cam_config)
+        message, sender_address = server_socket.recvfrom(consts.BUFFER_SIZE)
+        try: 
+            cam_config.ParseFromString(message)
+            ack_message = Ack()
+            ack_message.ack = True
+            server_socket.sendto(ack_message.SerializeToString(), sender_address)
+        except Exception as e: 
+            print(e)
+        else: 
+            print(cam_config)
+            print("finished configuration ready to roll! ")
+            connected = True
+
+def recv_cam_positions():
+    while True:
+        print("Listening for cam position")
+
+        cam_position = CameraPosition()
+
+        message, sender_address = server_socket.recvfrom(consts.BUFFER_SIZE)
+        try: 
+            cam_position.ParseFromString(message)
+        except Exception as e: 
+            print(e)
+        else: 
+            print(cam_position)
+
+
+if __name__ == "__main__": 
+    connect_client()
+    recv_cam_positions()

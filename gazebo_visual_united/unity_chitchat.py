@@ -31,7 +31,7 @@ class UnityClient():
                 time.sleep(1)
             else:
                 try: 
-                    message = self.unity_socket.recv(1000) 
+                    message = self.unity_socket.recv(consts.BUFFER_SIZE) 
                     response = Ack()
                     response.ParseFromString(message)
                     if response.ack: 
@@ -45,7 +45,7 @@ class UnityClient():
 
     def publish_position(self, camera_position_msg: CameraPosition): 
         msg_to_sent = prepare_msg(camera_position_msg.SerializeToString())
-        self.unity_socket.sendto(msg_to_sent, consts.UNITY_SOCKET_ADDRESS_PORT)
+        self.unity_socket.sendall(msg_to_sent)
 
     def start_rtsp_client(self,): 
         cap = cv2.VideoCapture(consts.UnityConsts.RTSP_URL, cv2.CAP_FFMPEG)

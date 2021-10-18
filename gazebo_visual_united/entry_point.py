@@ -1,11 +1,13 @@
+import time 
 from threading import Thread
 from gazebo_chitchat import GazeboClient
 from unity_chitchat import UnityClient
 import consts
 
 def publish_poition_periodically(gazebo_client: GazeboClient, unity_client: UnityClient): 
-    pass 
-
+    while True: 
+        time.sleep(1/consts.POSITION_UPS)
+        unity_client.publish_position(gazebo_client.camera_position)
 
 def main(): 
     gz_client = GazeboClient()
