@@ -3,7 +3,6 @@ import sys
 import struct
 import time
 from gazebo_unity_messages import CameraPosition
-from gazebo_visual_united.utils import is_socket_closed
 
 address = ('localhost', 6005)
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
