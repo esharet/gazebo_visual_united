@@ -1,11 +1,10 @@
 from setuptools import setup, find_packages
 
-package_name = 'gazebo_unity_messages'
 
 setup(
-    name=package_name,
+    name='gazebo_unity_package',
     version='1.0.0',
-    packages=find_packages(where=package_name),
+    packages=['gazebo_unity_messages', 'gazebo_visual_united'],
     install_requires=['protobuf' ],
     zip_safe=True,
     maintainer='user',
