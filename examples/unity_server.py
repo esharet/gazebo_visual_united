@@ -9,7 +9,7 @@ address = ('', 15577)
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 server_socket.bind(address)
 
-server_socket.settimeout(3)
+server_socket.settimeout(30)
 
 def connect_client():
     connected = False
