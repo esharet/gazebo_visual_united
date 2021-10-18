@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package cc.msgs; 
+
 message Ack{ 
     bool ack = 1; 
 

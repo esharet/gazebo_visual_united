@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-message CameraConfig { 
+package cc.msgs; 
+
+message CameraConfig{ 
     int32 width = 2; 
 
 }
