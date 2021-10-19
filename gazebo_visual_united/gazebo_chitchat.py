@@ -73,7 +73,7 @@ class GazeboClient():
         self.camera_position.vel_up = self.gazebo_data.gps.velocity_up
 
 
-        print(self.camera_position)
+        # print(self.camera_position)
 
     async def subscribe_position(self,):
         manager = await pygazebo.connect()
@@ -84,11 +84,12 @@ class GazeboClient():
         while True:
             await asyncio.sleep(1)
 
-    def start_recv_position_messages(self,): 
-        self.loop_imu = asyncio.get_event_loop()
-        self.loop_imu.run_until_complete(self.subscribe_position())
+    def start_recv_position_messages(self,loop): 
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(self.subscribe_position())
 
 
 if __name__ == "__main__": 
     gazebo_client = GazeboClient()
-    gazebo_client.start_recv_position_messages()
+    loop = asyncio.get_event_loop()
+    gazebo_client.start_recv_position_messages(loop)

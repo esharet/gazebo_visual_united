@@ -3,6 +3,7 @@ from threading import Thread
 from gazebo_chitchat import GazeboClient
 from unity_chitchat import UnityClient
 import consts
+import asyncio
 
 def publish_poition_periodically(gazebo_client: GazeboClient, unity_client: UnityClient): 
     while True: 
@@ -12,7 +13,8 @@ def publish_poition_periodically(gazebo_client: GazeboClient, unity_client: Unit
 def main(): 
     gz_client = GazeboClient()
     unity_client = UnityClient()
-    gazebo_thread = Thread(target=gz_client.start_recv_position_messages(), daemon=True)
+    loop = asyncio.get_event_loop()
+    gazebo_thread = Thread(target=gz_client.start_recv_position_messages, daemon=True, args=(loop, ))
     gazebo_thread.start()
     connection_success = unity_client.initiate_connection(consts.CAMERA_CONFIG_MSG)
 
