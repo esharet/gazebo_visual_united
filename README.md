@@ -62,7 +62,12 @@
    3. in the venv - 
       1. ``` python3 -m pip --upgrade pip setuptools wheel```
       2. ```pip install -r requirements```
-   4. generating the messages - 
+      3. ```
+         cd ~/git; git clone https://github.com/robobe/pygazebo
+         cd pygazebo; python -m build
+         pip install ~/git/pygazebo/dist/pygazebo-4.0.0-2019.07.tar.gz
+         ```
+   3. generating the messages - 
       1. in the gazebo_unity_messages dir - ```protoc -I=proto --python_out=py_msgs proto/*```
    5. setup - 
       1. in the project root dir - ```python setup.py develop```  
