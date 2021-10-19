@@ -50,7 +50,6 @@ class GazeboClient():
     def __init__(self,): 
         self.camera_position = CameraPosition()
         self.camera_position.latitude = 4
-        # self.gazebo_imu = IMU(entity_name=None, orientation=None, angular_velocity=None, linear_acceleration=None)
         self.gazebo_data = GazeboData(imu=None, gps=None)
 
     def handler_imu(self, data):
@@ -69,9 +68,14 @@ class GazeboClient():
         self.camera_position.latitude = self.gazebo_data.gps.latitude_deg
         self.camera_position.longitude = self.gazebo_data.gps.longitude_deg
         self.camera_position.altitude = self.gazebo_data.gps.altitude
-        # print(self.camera_position)
+        self.camera_position.vel_east = self.gazebo_data.gps.velocity_east
+        self.camera_position.vel_north = self.gazebo_data.gps.velocity_north
+        self.camera_position.vel_up = self.gazebo_data.gps.velocity_up
 
-    async def publish_position(self,):
+
+        print(self.camera_position)
+
+    async def subscribe_position(self,):
         manager = await pygazebo.connect()
         await manager.subscribe(GZ_IMU_TOPIC, 'gazebo.msgs.IMU', self.handler_imu)
         await manager.subscribe(GZ_GPS_TOPIC, 'gazebo.msgs.GPS', self.handler_gps)
@@ -82,7 +86,7 @@ class GazeboClient():
 
     def start_recv_position_messages(self,): 
         self.loop_imu = asyncio.get_event_loop()
-        self.loop_imu.run_until_complete(self.publish_position())
+        self.loop_imu.run_until_complete(self.subscribe_position())
 
 
 if __name__ == "__main__": 

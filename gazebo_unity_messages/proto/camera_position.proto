@@ -5,13 +5,13 @@ package cc.msgs;
 message CameraPosition { 
     double latitude = 1; 
     double longitude = 2;
-    double altitude = 3; 
-    double roll = 4; 
-    double pitch = 5; 
-    double yaw = 6; 
-    double v_north = 7; 
-    double v_east = 8; 
-    double v_up = 9;    
+    double altitude = 3;
+    double roll = 4;
+    double pitch = 5;
+    double yaw = 6;
+    double vel_east = 7;
+    double vel_north = 8;
+    double vel_up = 9;
 }
 
 
