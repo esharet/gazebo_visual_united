@@ -4,7 +4,12 @@
 1. clone the project into ~/projects directory 
 2. [gazebo installation](http://gazebosim.org/tutorials?tut=install_ubuntu)
    1. after installation run ```source /usr/share/gazebo-11/setup.py```
-   2. run the following lines (to add mendatory lines to ~/.bashrc):
+   2. 
+   ```
+   sudo apt-get update 
+   sudo apt-get install -y build-essential
+   ```
+   3. run the following lines (to add mendatory lines to ~/.bashrc):
        ```
        echo 'export GAZEBO_MODEL_PATH=~/projects/gazebo_visual_united/models:${GAZEBO_MODEL_PATH}' >> ~/.bashrc
        echo 'export GAZEBO_RESOURCE_PATH=~/projects/gazebo_visual_united/worlds:${GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
@@ -12,7 +17,7 @@
        source ~/.bashrc
        ```
 
-    3. compile the plugins:
+    4. compile the plugins:
        ```
        cd build
        cmake ..

@@ -14,33 +14,13 @@ project(gazebo_visual_united)
 #######################
 
 find_package(gazebo REQUIRED)
-set(GStreamer_FIND_VERSION "1.0")
 find_package(PkgConfig) #finding pkg-config is a helper tool
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(Eigen3 REQUIRED)
 
-#using pkg-config to getting Gstreamer
-pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
 
-
-#including GStreamer header files directory
-include_directories(
-        ${GLIB_INCLUDE_DIRS}
-        ${GSTREAMER_INCLUDE_DIRS}
-        )
-
-
-#linking GStreamer library directory
-link_directories(
-        ${GLIB_LIBRARY_DIRS}
-        ${GSTREAMER_LIBRARY_DIRS}
-)
-
-link_libraries(
-  ${GSTREAMER_LIBRARIES}
-)
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
