@@ -4,12 +4,23 @@
 1. clone the project into ~/projects directory 
 2. [gazebo installation](http://gazebosim.org/tutorials?tut=install_ubuntu)
    1. after installation run ```source /usr/share/gazebo-11/setup.py```
-   2. add these lines to your .bashrc:
+   2. run the following lines (to add mendatory lines to ~/.bashrc):
+       ```
+       echo 'export GAZEBO_MODEL_PATH=~/projects/gazebo_visual_united/models:${GAZEBO_MODEL_PATH}' >> ~/.bashrc
+       echo 'export GAZEBO_RESOURCE_PATH=~/projects/gazebo_visual_united/worlds:${GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
+       echo 'export GAZEBO_PLUGIN_PATH=~/apm/gazebo_visual_united/build:${GAZEBO_PLUGIN_PATH}' >> ~/.bashrc
+       source ~/.bashrc
+       ```
 
-      ```export GAZEBO_MODEL_PATH=~/projects/gazebo_visual_united/models:${GAZEBO_MODEL_PATH}```
-      ```export   =~/projects/gazebo_visual_united/worlds:${GAZEBO_RESOURCE_PATH}```
+    3. compile the plugins:
+       ```
+       cd build
+       cmake ..
+       make
+       sudo make install
+       ```
    3. test gazebo with the world - ```gazebo --world /home/user/projects/gazebo_visual_united/worlds/iris_arducopter_runway.world --verbose```
-   4. you should expect error of failed plugin   
+
 3. sitl installation
    1. sitl check
    2. gazebo and sitl check   
