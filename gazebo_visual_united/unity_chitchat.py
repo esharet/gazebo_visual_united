@@ -49,9 +49,10 @@ class UnityClient():
     def start_rtsp_client(self,): 
         cap = cv2.VideoCapture(consts.UnityConsts.RTSP_URL, cv2.CAP_FFMPEG)
         
-        if not cap.isOpened():
-            print('Cannot open RTSP stream')
-            exit(-1)
+        while not cap.isOpened():
+            print('Cannot open RTSP stream, retrying....')
+            time.sleep(1)
+            cap = cv2.VideoCapture(consts.UnityConsts.RTSP_URL, cv2.CAP_FFMPEG)
         
         while True:
             _, frame = cap.read()
