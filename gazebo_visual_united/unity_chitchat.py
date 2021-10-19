@@ -4,8 +4,7 @@ import time
 import cv2 
 import os
 
-from gazebo_unity_messages import CameraPosition
-from gazebo_unity_messages.py_msgs.ack_pb2 import Ack 
+from gazebo_unity_messages import CameraPosition, Ack, CameraConfig
 from gazebo_visual_united import consts
 
 os.environ['OPENCV_FFMPEG_CAPTURE_OPTIONS'] = 'rtsp_transport;udp'
@@ -18,7 +17,7 @@ class UnityClient():
         self.unity_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
         self.unity_socket.settimeout(consts.SOCKET_TIMEOUT)
         
-    def initiate_connection(self,camera_config_msg): 
+    def initiate_connection(self,camera_config_msg: CameraConfig): 
         connected = False
         while not connected: 
             try: 

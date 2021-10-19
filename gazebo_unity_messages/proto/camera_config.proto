@@ -3,6 +3,11 @@ syntax = "proto3";
 package cc.msgs; 
 
 message CameraConfig{ 
-    int32 width = 2; 
-
+    int32 width = 1; 
+    int32 height = 2; 
+    double h_fov = 3; 
+    int32 fps = 4; 
+    bool is_FLIR = 5; 
+    double clip_near = 6; 
+    double clip_far = 7; 
 }
