@@ -1,2 +1,4 @@
 protobuf
 opencv-contrib-python
+transformations
+dataclasses

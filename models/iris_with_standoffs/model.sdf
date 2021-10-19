@@ -116,7 +116,7 @@
       </visual>
       <sensor name="gps_sensor" type="gps">
         <pose>0 0 0 0 0 0 </pose>
-        <update_rate>10.0</update_rate>
+        <update_rate>50.0</update_rate>
         <always_on>true</always_on>
         <topic>/gps</topic>
       </sensor>
