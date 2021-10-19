@@ -57,7 +57,7 @@
    needs to do a mission in and be seen in the gazebo and sitl map.
 
 5. install the project  
-   1. 
+   1. ```sudo apt install python3-venv```
    2. ```python3 -m venv venv```
    3. in the venv - 
       1. ``` python3 -m pip --upgrade pip setuptools wheel```
@@ -66,7 +66,7 @@
       1. in the gazebo_unity_messages dir - ```protoc -I=proto --python_out=py_msgs proto/*```
    5. setup - 
       1. in the project root dir - ```python setup.py develop```  
-6. test everything - run usage in debug mode 
+   6. test everything - run usage 
 
 
 ## usage
