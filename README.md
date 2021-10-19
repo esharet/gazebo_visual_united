@@ -64,7 +64,7 @@
       2. ```pip install -r requirements```
       3. ```
          cd ~/git; git clone https://github.com/robobe/pygazebo
-         cd pygazebo; python -m build
+         cd pygazebo; pip install build; python -m build
          pip install ~/git/pygazebo/dist/pygazebo-4.0.0-2019.07.tar.gz
          ```
    3. generating the messages - 
