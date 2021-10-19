@@ -9,6 +9,8 @@ message CameraPosition {
     double roll = 4;
     double pitch = 5;
     double yaw = 6;
-    
+    double vel_east = 7;
+    double vel_north = 8;
+    double vel_up = 9;
 }
 
